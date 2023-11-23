@@ -14,8 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,21 +22,21 @@
             android:layout_marginEnd="16dp">
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
+                android:hint="Your password will bs shown here."
                 android:inputType="textMultiLine"
                 android:layoutDirection="ltr"
                 android:scrollHorizontally="true"
-                android:text="Your long text goes here. This is just an example to demonstrate scrolling in the TextView. You can replace this with your actual text."
                 android:textColor="@color/black"
                 android:textSize="35sp" />
         </HorizontalScrollView>
 
-
         <TextView
+            android:id="@+id/indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -48,16 +46,16 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_content_copy_24"
-            android:layout_marginTop="150dp"
             android:layout_marginStart="365dp"
-            />
+            android:layout_marginTop="150dp"
+            android:src="@drawable/baseline_content_copy_24" />
 
 
         <ImageView
-            android:id="@+id/yourImageViewId"
+            android:id="@+id/refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -66,8 +64,78 @@
             android:src="@drawable/baseline_refresh_24" />
 
 
+        <TextView
+            android:id="@+id/lengthIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Password Length = 8"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="150dp"
+            tools:layout_editor_absoluteX="134dp"
+            tools:layout_editor_absoluteY="433dp" />
+
+
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Change password length"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
+    <com.google.android.material.slider.Slider
+        android:id="@+id/passwordLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:valueFrom="8.0"
+        android:valueTo="30.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <CheckBox
+        android:id="@+id/includeNumbers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Include numbers (123)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLength" />
+
+    <CheckBox
+        android:id="@+id/includeUpperCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include upper case letters (ABC)"
+        app:layout_constraintStart_toStartOf="@+id/includeNumbers"
+        app:layout_constraintTop_toBottomOf="@+id/includeNumbers" />
+
+    <CheckBox
+        android:id="@+id/includeLowerCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include lower case (abc)"
+        app:layout_constraintStart_toStartOf="@+id/includeUpperCase"
+        app:layout_constraintTop_toBottomOf="@+id/includeUpperCase" />
+
+    <CheckBox
+        android:id="@+id/includeSpecialCharacters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include special characters (!@*^)"
+        app:layout_constraintStart_toStartOf="@+id/includeLowerCase"
+        app:layout_constraintTop_toBottomOf="@+id/includeLowerCase" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,23 +1,41 @@
 package com.zenspace.passwordgenerator
 
 import android.animation.ObjectAnimator
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import com.zenspace.passwordgenerator.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var imageView: ImageView
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        val imageView: ImageView = binding.refresh
 
-        imageView = findViewById(R.id.yourImageViewId)
-
-        imageView.setOnClickListener {
+        binding.refresh.setOnClickListener {
             rotateImage(imageView)
         }
 
+        setSliderStepsize()
+
+        binding.passwordLength.addOnChangeListener { _, value, _ ->
+            setTheLengthOfPassword(value)
+        }
+
+    }
+
+    private fun setTheLengthOfPassword(value: Float) {
+        binding.lengthIndicator.setTextColor(Color.BLACK)
+        binding.lengthIndicator.text = "Password Length = " + value.toInt().toString()
+    }
+
+    private fun setSliderStepsize() {
+        binding.passwordLength.stepSize = 1.0f
     }
 
     private fun rotateImage(imageView: ImageView) {
