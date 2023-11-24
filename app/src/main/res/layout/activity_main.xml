@@ -14,8 +14,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <HorizontalScrollView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="70dp"
@@ -68,11 +69,11 @@
             android:id="@+id/lengthIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="150dp"
             android:hint="Password Length = 8"
             android:textColorHint="@color/black"
             android:textSize="20sp"
-            android:layout_marginStart="105dp"
-            android:layout_marginTop="150dp"
             tools:layout_editor_absoluteX="134dp"
             tools:layout_editor_absoluteY="433dp" />
 
@@ -84,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Change password length"
+        android:text="Choose password length"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.092"
@@ -138,4 +139,19 @@
         android:text="Include special characters (!@*^)"
         app:layout_constraintStart_toStartOf="@+id/includeLowerCase"
         app:layout_constraintTop_toBottomOf="@+id/includeLowerCase" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/generatePassword"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:text="Generate Password"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/includeSpecialCharacters" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
